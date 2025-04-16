@@ -11,7 +11,7 @@
 
 # if MRTG_lib.pm (from mrtg) is not in the module search path (@INC)
 # uncomment the following line and change the path appropriatly:
-use lib qw(/usr/local/mrtg-2/lib/mrtg2);
+#use lib qw(/usr/local/mrtg-2/lib/mrtg2);
 
 # if RRDs (rrdtool perl module) is not in the module search path (@INC)
 # uncomment the following line and change the path appropriatly
