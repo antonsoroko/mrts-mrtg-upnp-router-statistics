@@ -14,7 +14,8 @@
 
 
 /* The directory where the rrd files are located */
-$dir = '/var/log/mrtg';
+//$dir = '/var/log/mrtg';
+$dir = '/var/www/html/mrtg';
 
 
 
@@ -390,7 +391,7 @@ function bottom()
 	{
 		while(($filename = readdir($dirhandler)) !== false)
 		{
-			if(ereg("$extension$", $filename))
+			if(preg_match("/\\$extension$/", $filename))
 			{
 				$filename = substr($filename, 0, -strlen($extension));
 				if(!in_array($filename, $exclude))
@@ -470,7 +471,7 @@ function bottom()
 				$days = array();
 
 				/* Get statistics for the selected month */
-				if($fp = popen("$rrdcommand fetch " . filename($_GET['name']) . " AVERAGE -r 864000 ".monthstartend($_GET['year'], $_GET['month']), 'r'))
+				if($fp = popen("$rrdcommand fetch " . filename($_GET['name']) . " AVERAGE -r 86400 ".monthstartend($_GET['year'], $_GET['month']), 'r'))
 				{
 					fgets($fp, 4096);
 					while(!feof($fp))
@@ -480,8 +481,8 @@ function bottom()
 						if($line != '')
 						{
 
-							list($date, $in, $out) = split('( )+', $line);
-							list($date) = split(':', $date);
+							list($date, $in, $out) = preg_split('/( )+/', $line);
+							list($date) = explode(':', $date);
 							if($lastdate != 0)
 							{
 
@@ -529,7 +530,7 @@ function bottom()
 					$key = '';
 					while(!feof($fp))
 					{
-						list($key, $value) = split(' = ', trim(fgets($fp, 4096)));
+						list($key, $value) = explode(' = ', trim(fgets($fp, 4096)));
 						if($key == 'last_update')
 						{
 							printf("Last updated: %s<br>\n", date("Y-m-d H:i:s", $value));
@@ -558,8 +559,8 @@ function bottom()
 						if($line != '')
 						{
 
-							list($date, $in, $out) = split('( )+', $line);
-							list($date) = split(':', $date);
+							list($date, $in, $out) = preg_split('/( )+/', $line);
+							list($date) = explode(':', $date);
 							if($lastdate != 0)
 							{
 
