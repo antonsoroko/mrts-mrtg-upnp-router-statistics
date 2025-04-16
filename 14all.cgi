@@ -55,12 +55,12 @@ my (@author, @style);
 
 ### where the mrtg.cfg file is
 # anywhere in the filespace
-#$cfgfile = '/home/mrtg/mrtg.cfg';
+$cfgfile = '/etc/mrtg/mrtg.cfg';
 # relative to the script
 #$cfgfile = 'mrtg.cfg';
 # use this so 14all.cgi gets the cfgfile name from the script name 
 # (14all.cgi -> 14all.cfg)
-$cfgfile = '';
+#$cfgfile = '';
 
 # if you want to store your config files in a different place than your cgis:
 $cfgfiledir = '';
@@ -108,13 +108,13 @@ my $footer_template = <<"EOT";
   <TR>
     <TD WIDTH=63><A ALT="MRTG"
     HREF="http://ee-staff.ethz.ch/~oetiker/webtools/mrtg/mrtg.html"><IMG
-    BORDER=0 SRC="##ICONDIR##mrtg-l.gif"></A></TD>
+    BORDER=0 SRC="##ICONDIR##mrtg-l.png"></A></TD>
     <TD WIDTH=25><A ALT=""
     HREF="http://ee-staff.ethz.ch/~oetiker/webtools/mrtg/mrtg.html"><IMG
-    BORDER=0 SRC="##ICONDIR##mrtg-m.gif"></A></TD>
+    BORDER=0 SRC="##ICONDIR##mrtg-m.png"></A></TD>
     <TD WIDTH=388><A ALT=""
     HREF="http://ee-staff.ethz.ch/~oetiker/webtools/mrtg/mrtg.html"><IMG
-    BORDER=0 SRC="##ICONDIR##mrtg-r.gif"></A></TD>
+    BORDER=0 SRC="##ICONDIR##mrtg-r.png"></A></TD>
   </TR>
 </TABLE>
 <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
