@@ -29,6 +29,9 @@ sudo chgrp www-data /var/www/html/mrtg/
 sudo chmod g+w /var/www/html/mrtg/
 ```
 
+> [!IMPORTANT]
+> It looks like that UPnP uses 32-bit counter for NewTotalBytesReceived & NewTotalBytesSent, so you must adjust Interval to your network speed in order not to lose the statistics. Set Interval = how fast you can download 4GB in MM:SS.
+
 ## References
 
 Router statistics via UPnP: https://eva-quirinius.blogspot.com/2014/01/nice-you-can-use-upnp-to-read-amount-of.html
