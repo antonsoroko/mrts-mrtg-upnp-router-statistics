@@ -4,19 +4,22 @@ DIY bundle for getting router statistics via UPnP with MRTG and showing it with 
 
 mrtg.cfg is ready to use. I used `/var/www/html/mrtg/` for RRD files.
 
-mrts.php was fixed to support PHP 8 but you might need to change `$dir`.
+mrts.php was fixed to support PHP 8, but you might need to change `$dir`.
 
-14all.cgi has minor fixes but you might need to change `$cfgfile` and [mrtg.cfg](mrtg.cfg).
+14all.cgi works (minor fixes were applied), but you might need to change `$cfgfile` and [mrtg.cfg](mrtg.cfg).
 
-mrtg-rrd.cgi there is fixed version but you need to change `BEGIN { @config_files = qw(/etc/mrtg/mrtg.cfg); }`.
+mrtg-rrd.cgi there is the fixed version, but you need to change `BEGIN { @config_files = qw(/etc/mrtg/mrtg.cfg); }`.
 
-routers2.cgi works out of the box, just use the installer.
+routers2.cgi works out of the box, just use the installer and provide correct answers.
 
-mrtgrg.php works out of the box.
+mrtgrg.php works out of the box, but you need to change `$mrtgconfigfiles`.
 
 Copy .cgi files to `/usr/lib/cgi-bin/` and copy *.php to `/var/www/html/mrtg/`. Default lighttpd WWW document root is `/var/www/html`.
 
 ```
+sudo cp upnpc2mrtg.sh /usr/local/bin/upnpc2mrtg.sh
+sudo chmod +x /usr/local/bin/upnpc2mrtg.sh
+#sudo cp mrtg.cfg /etc/mtrg/
 sudo apt install mrtg
 sudo apt install rrdtool
 sudo apt install lighttpd
