@@ -36,7 +36,7 @@ sudo chmod g+w /var/www/html/mrtg/
 ```
 
 > [!IMPORTANT]
-> It looks like that UPnP uses 32-bit counter for NewTotalBytesReceived & NewTotalBytesSent, so you must adjust Interval to your network speed in order not to lose the statistics. Set Interval = how fast you can download 4GB in MM:SS.
+> It looks like that UPnP uses 32-bit counter for NewTotalBytesReceived & NewTotalBytesSent, so you must adjust Interval to your network speed in order not to lose the statistics in case when you downloaded more than 4GB during Interval. If you downloaded less than 4GB but counter was reset because of overflow, but current counter's value is less than previous counter's value - then [MRTG will understand that](https://stackoverflow.com/questions/21019879/explain-me-a-difference-of-how-mrtg-measures-incoming-data). But if you downloaded more than 4GB and counter was reset and current counter's value is more than previous counter's value - then it is impossible to detect this situation, so you lose some statistics. Set Interval to "how fast you can download 4GB" in MM:SS format.
 
 ## References
 
