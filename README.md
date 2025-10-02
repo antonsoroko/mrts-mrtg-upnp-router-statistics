@@ -19,8 +19,9 @@ Copy .cgi files to `/usr/lib/cgi-bin/` and copy *.php to `/var/www/html/mrtg/`. 
 ```
 sudo cp upnpc2mrtg.sh /usr/local/bin/upnpc2mrtg.sh
 sudo chmod +x /usr/local/bin/upnpc2mrtg.sh
-#sudo cp mrtg.cfg /etc/mtrg/
 sudo apt install mrtg
+#sudo cp mrtg.cfg /etc/mtrg/
+sudo apt install miniupnpc
 sudo apt install rrdtool
 sudo apt install lighttpd
 sudo lighttpd-enable-mod cgi fastcgi-php
